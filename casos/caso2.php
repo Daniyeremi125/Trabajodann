@@ -22,49 +22,98 @@
             <tr>
                 <td>Horas Trabajadas: </td>
                 <td>
-                <input type="text" name=txtHorasTrabajdas>
+                <input type="text" name=txtHoras>
                 </td>
             </tr>
             <tr>
                 <td>Tarifa Por Hora: </td>
-                <td> <input type="text" name=txtTarifaPorHora>
+                <td> <input type="text" name=txtTarifa>
             </td>
             </tr>
             <tr>
+                <td></td>
                 <td>
-                    <input type="submit" value="Procesar">
+                <input type="submit"> 
+                <input type="reset">
+            
                 </td>
+            </tr>
+            <?php
+                error_reporting(0);
+                $Empleado = $_GET['txtEmpleado'];
+                $Horas = $_GET['txtHoras'];
+                $Tarifa = $_GET['txtTarifa'];
+                
+                ?>
+            <tr>
+                <td>Empleado</td>
                 <td>
-                    <input type="reset" value="Limpiar">
+                <?php
+                    echo $Empleado;
+                    ?>
+            
                 </td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Horas Trabajadas</td>
+                <td>
+                <?php
+                    echo $Horas;
+                    ?>
+            
+                </td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Tarifa Por Hora</td>
+                <td><?php
+                    echo $Tarifa;
+                    ?></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Sueldo Bruto</td>
+                <td>
+                <?php
+                 $Sueldo = $Horas * $Tarifa;
+                        echo "S/.".$Sueldo;
+                        ?>
+                </td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Descuento ESSALUD</td>
+                <td>
+                    <?php
+
+            define("Salud",0.9);
+            $Essalud = $Sueldo * Salud;
+            $suelfosafi= $Sueldo - $Essalud;
+            echo "S/.".$suelfosafi;
+
+                    ?>
+                </td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Descuento AFP</td>
+                <td>
+                <?php
+
+            define("AFP",0.13);
+            $AFP = $Sueldo* AFP;
+
+            echo "S/.".$AFP;
+
+
+        ?> 
+                </td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
+                <td>Sueldo Neto</td>
+                <td>
+                <?php
+                $SueldoNETO = $Sueldo - $suelfosafi - $AFP;
+
+                echo "S/.".$SueldoNETO;
+                ?>
+                </td>
             </tr>
 
             </table>
