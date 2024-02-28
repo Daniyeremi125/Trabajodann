@@ -15,7 +15,7 @@
   </header>
   <section>
     <table border="0" cellpadding="0" cellspacing="0">
-      <form action="caso9.php" method="post">
+      <form action="practica.php" method="post">
         <tr>
           <td>Producto:</td>
           <td>
@@ -99,3 +99,4 @@
   </footer>
 </body>
 </html>
+
